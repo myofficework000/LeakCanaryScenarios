@@ -74,6 +74,18 @@ defaults are more conservative for regular apps.
 ./gradlew :app:assembleStudioDebug
 ```
 
+## CI artifacts
+
+Every push to `main`, pull request, and manual run triggers the GitHub Actions workflow. Open the
+run's **Artifacts** section to download:
+
+- `LeakCanaryScenarios-debug-APKs-<run>` — installable `nativeDebug` and `studioDebug` APKs.
+- `LeakCanaryScenarios-native-release-<run>` — the native release APK and native release AAB.
+
+The release APK is intentionally named `*-unsigned.apk` until a production signing keystore is
+configured. Use the debug APK for local demos; sign release outputs with your protected CI secrets
+before publishing to users or Play Console.
+
 See [LEAKCANARY_DEMO.md](LEAKCANARY_DEMO.md) for the complete testing runbook and the expected
 behavior of every viewer.
 
